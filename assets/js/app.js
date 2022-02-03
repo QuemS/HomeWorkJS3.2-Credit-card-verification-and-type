@@ -50,21 +50,32 @@ class Card{
             }
         }
     }
+    result(){
+        if (this.isCorrect()) {
+            switch(true){
+                case this.visa(): 
+                    alert (`Карта: ${this.card} VISA`);
+                    break;
+                case this.maestro(): 
+                    alert (`Карта: ${this.card} MAESTRO`);
+                    break;
+                case this.masterCard(): 
+                    alert (`Карта: ${this.card} MASTERCARD`);
+                    break;
+                default:
+                    alert (`Карта: ${this.card} Другая`)
+                    break;
+                
+            }
+        }else{
+            alert (`Неверный ввод`);
+        }
+    }
 }
 
 
 let inputCard = prompt('Введите номер карты');
 let a = new Card(inputCard);
+a.result();
 
 
-if (a.visa() && a.isCorrect()) {
-    alert (`Карта: ${inputCard} VISA`)
-}else if (a.maestro() && a.isCorrect()) {
-    alert (`Карта: ${inputCard} MAESTRO`)
-}else if (a.masterCard() && a.isCorrect()) {
-    alert (`Карта: ${inputCard} MASTERCARD`)
-}else if (a.isCorrect()) {
-    alert (`Карта: ${inputCard} Другая`)
-}else{
-    alert (`Неверный ввод`)
-}
